@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<img src="https://get.ore.ink/img/ore.png" alt="logo" />
+<!--				<h1>ArtOS + SOHOGalleries</h1>-->
+                <a href="{{ url_for('upload') }}"><i class="fas fa-home"></i>Upload</a>
+
+				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+			</div>
+		</nav>
+		<div class="content">
+			<p>Supported File Extensions:</p>
+			<p>'txt', 'pdf', 'png', 'jpg', 'css', 'js', 'jpeg', 'woff', 'woff2', 'otf', 'ttf', 'mp4', 'mp4', 'wmv', 'wov', 'gif', 'webp', 'svg'</p>
+			{% block content %}{% endblock %}
+		</div>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>OreID Authentication</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style_login.css') }}">
+<img src="{{ url_for('static', filename='ore.png') }}" alt="logo" href="https://ore.ink" />
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form class="form" id="form" action="{{ url_for('login') }}" method="post">
+  <input class="input" name="email" type="email" placeholder="Email"  id="email" autocomplete="off" required/>
+  <input class="input" name="password" type="password" placeholder="Password"  id="password" required/>
+  <input class="button" id="submit" type="submit" value="Login">
+    <div class="msg">{{ msg }}</div>
+  <small>Powered By OreID Auth</small>
+</form>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script  src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

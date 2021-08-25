@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block title %}Bundler - Images Stage{% endblock %}
+
+{% block content %}
+<h2>Select file(s) to upload</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<p>YOU MUST FILL THIS OUT</p>
+			<p>ALLOWED CATEGORIES ARE "js, css, img, vid, font, gif"</p>
+			<label for="action_upload">
+				<i class="fas fa-user"></i>
+			</label>
+			<input type="text" name="action_upload" placeholder="Upload Category" id="action_upload" required>
+			<p>THIS IS REQUIRED</p>
+			<label for="action_filename">
+				<i class="fas fa-user"></i>
+			</label>
+			<input type="text" name="action_filename" placeholder="Name Of File" id="action_filename" required>
+			<p>Only Input a file Extension if uploading a Image, Video or Font</p>
+			<label for="action_file_format">
+				<i class="fas fa-user"></i>
+			</label>
+			<input type="text" name="action_file_format" placeholder="File Extension" id="action_file_format">
+			<input type="file" name="files[]" multiple="true" autocomplete="off" required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Submit">
+	</p>
+</form>
+{% endblock %}
